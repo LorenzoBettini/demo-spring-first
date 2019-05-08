@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 public class GreetingsConfig {
 
 	@Bean
-	public GreetingsService greetingsService() {
-		return new GreetingsServiceDefaultImpl();
+	public GreetingsService greetingsService(GreetingPreProcessor preprocessor) {
+		return new GreetingsServiceDefaultImpl(preprocessor);
 	}
 }
