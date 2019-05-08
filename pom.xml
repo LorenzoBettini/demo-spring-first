@@ -49,6 +49,11 @@
       <artifactId>bootstrap</artifactId>
       <version>3.4.1</version>
     </dependency>
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>webjars-locator</artifactId>
+      <version>0.36</version>
+    </dependency>
   </dependencies>
 
   <build>
