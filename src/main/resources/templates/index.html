@@ -3,10 +3,17 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Hello Page</title>
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
 </head>
 <body>
 
-<p><span th:text="'Hello ' + ${message}"></span></p>
+	<h1>Spring Boot Simple Example</h1>
+	<h2>
+		<span th:text="'Message: ' + ${message}"></span>
+	</h2>
 
 </body>
 </html>
