@@ -1,10 +1,9 @@
 package com.examples.spring.demo.first;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
 
 import com.examples.spring.demo.first.model.Person;
 import com.examples.spring.demo.first.repository.PersonRepository;
@@ -16,16 +15,12 @@ public class DemoSpringFirstApplication {
 		SpringApplication.run(DemoSpringFirstApplication.class, args);
 	}
 
-	@Component
-	static class RepositoryInitializer implements CommandLineRunner {
-		@Autowired
-		private PersonRepository personRepository;
-		
-		@Override
-		public void run(String... args) throws Exception {
+	@Bean
+	public CommandLineRunner repositoryInitializer(PersonRepository personRepository) {
+		return (args) -> {
 			personRepository.save(new Person("Mario", "Rossi"));
 			personRepository.save(new Person("Carlo", "Rossi"));
 			personRepository.save(new Person("Paolo", "Bianchi"));
-		}
+		};
 	}
 }
