@@ -29,4 +29,9 @@ public class PersonRestController {
 		return personRepository.findById(id);
 	}
 
+	@GetMapping("/lastname/{id}")
+	public List<Person> byLastName(@PathVariable("id") String lastName) {
+		return personRepository.findByLastNameOrderByFirstName(lastName);
+	}
+
 }
