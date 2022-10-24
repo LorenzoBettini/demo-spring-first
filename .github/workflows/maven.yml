@@ -19,7 +19,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml', '**/maven-wrapper.properties') }}
         # perfect match for the cache key:
         # if a POM changes we start with a brand new cache
     - name: Download Maven dependencies
@@ -41,7 +41,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.m2
-        key: ${{ runner.os }}-m2-build-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-m2-build-${{ hashFiles('**/pom.xml', '**/maven-wrapper.properties') }}
         restore-keys: ${{ runner.os }}-m2-
     - name: Build with Maven
       run: ./mvnw verify
